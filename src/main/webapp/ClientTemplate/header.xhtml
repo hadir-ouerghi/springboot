@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:panelGroup>
+		<header class="site-navbar py-4 js-sticky-header site-navbar-target"
+			role="banner">
+
+			<div class="container">
+				<div class="row align-items-center">
+
+					<div class="col-6 col-xl-2">
+						<h1 class="mb-0 site-logo m-0 p-0">
+							<a href="index.html" class="mb-0">Warehouse</a>
+						</h1>
+					</div>
+
+					<div class="col-12 col-md-10 d-none d-xl-block">
+						<nav class="site-navigation position-relative text-right"
+							role="navigation">
+
+							<ul
+								class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+								<li><h:link value="Home" outcome="Home.xhtml" includeViewParams="true"/></li>
+								<li><h:link value="UserSpace" outcome="Profile.xhtml" includeViewParams="true"/></li>
+									<li><h:link value="Properties" outcome="Add.xhtml" /></li>
+									<li><h:link value="Docs" outcome="RentDocs.xhtml" /></li>
+									<li><h:link value="Rent" outcome="recherche.xhtml" /></li>
+								<li><a href="#agents-section" class="nav-link">Agents</a></li>
+								<li><a href="#about-section" class="nav-link">About</a></li>
+								<li><a href="#news-section" class="nav-link">News</a></li>
+								<li><a href="#contact-section" class="nav-link">Contact</a></li>
+								<li><h:link value="Store" outcome="Store.xhtml" includeViewParams="true"/></li>
+							</ul>
+						</nav>
+					</div>
+
+
+					<div class="col-6 d-inline-block d-xl-none ml-md-0 py-3">
+						<a href="#"
+							class="site-menu-toggle js-menu-toggle text-white float-right"><span
+							class="icon-menu h3"></span></a>
+					</div>
+
+				</div>
+			</div>
+
+		</header>
+		   
+	</h:panelGroup>
+
+</ui:composition>

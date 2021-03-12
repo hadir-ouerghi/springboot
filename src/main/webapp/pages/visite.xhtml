@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	template="/ClientTemplate/template.xhtml">
+
+
+	<ui:param name="page_name" value="Dari" />
+	<ui:define name="client">
+
+
+		<!-- Search Section Begin -->
+		<section class="breadcrumb-section spad set-bg"
+			data-setbg="/resources/img/ima4.jpg"
+			style="background-image: url(&quot;img/breadcrumb-bg.jpg&quot;);">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="breadcrumb-text">
+						<h4>Appointment Submit</h4>
+						<div class="bt-option">
+							<a href="./index.html"><i class="fa fa-home"></i> Home</a> <span>Property</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</section>
+		<!-- Search Section Ends -->
+
+
+		
+
+
+		<section class="search-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7">
+					<div class="section-title">
+						<h4>Book your appointment!</h4>
+					</div>
+				</div>
+				<hr class="mb-4"></hr>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-4 order-md-2 mb-4">
+					<h4 class="d-flex justify-content-between align-items-center mb-3">
+						<span style="color:#327C57">Disponibility</span> <span class="badge">
+							</span>
+					</h4>
+					<h:form>
+						<ui:repeat value="#{DispController.disp}" var="dsp">
+							<ul class="list-group mb-3">
+								<li
+									class="list-group-item d-flex justify-content-between lh-condensed">
+									<div>
+										<h6 class="my-0">
+											<h:outputText value="#{dsp.days}" />
+										</h6>
+										<row>
+										<small>from: </small>
+										<small class="text-muted"><h:outputText
+												value="#{dsp.hourd}" /></small> <small>to: </small>
+										<small class="text-muted"><h:outputText
+												value="#{dsp.hourf}" /></small></row>
+									</div> <span class="text-muted"><h:outputText style="color:#7EDEAC" 
+											value="#{dsp.statedispo}" /></span>
+								</li>
+							</ul>
+						</ui:repeat>
+					</h:form>
+				</div>
+
+
+
+
+				<div class="col-md-8 order-md-1">
+
+					<form class="needs-validation" novalidate="">
+
+						<div class="row">
+
+							<div class="col-md-6 mb-3">
+								<label for="date">Date</label>
+								<h:inputText styleClass="datepicker form-control" value=""
+									placeholder="Date event">
+									<f:convertDateTime pattern="MM/dd/yyyy" type="date" />
+								</h:inputText>
+								
+							</div>
+
+							<div class="col-md-6 mb-3">
+								<label for="firstName">Hour</label> <input type="text"
+									class="form-control" id="hour" placeholder="hh:mm" value=""
+									required=""></input>
+
+							</div>
+
+							<div class="col-md-6 mb-3">
+								<label for="firstName">Location</label> <input type="text"
+									class="form-control" id="firstName" placeholder="" value=""
+									required=""></input>
+								<div class="invalid-feedback">Valid first name is
+									required.</div>
+							</div>
+						</div>
+						<hr class="mb-4"></hr>
+
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label for="firstName">First name</label> <input type="text"
+									class="form-control" id="firstName" placeholder="" value=""
+									required=""></input>
+								<div class="invalid-feedback">Valid first name is
+									required.</div>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label for="lastName">Last name</label> <input type="text"
+									class="form-control" id="lastName" placeholder="" value=""
+									required=""></input>
+								<div class="invalid-feedback">Valid last name is required.</div>
+							</div>
+						</div>
+
+
+						<hr class="mb-4"></hr>
+						<div class="mb-3">
+							<label for="email">Email</label> <input type="email"
+								class="form-control" id="email" placeholder="you@example.com"></input>
+							<div class="invalid-feedback">Please enter a valid email
+								address for shipping updates.</div>
+						</div>
+
+
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label for="cc-number">Phone number</label> <input type="text"
+									class="form-control" id="cc-number" placeholder="" required=""></input>
+							</div>
+						</div>
+
+						<hr class="mb-4"></hr>
+
+					</form>
+				</div>
+			</div>
+
+
+			<div class="search-form-content">
+				<form action="#" class="filter-form">
+					<button type="button" class="search-btn sm-width">Submit</button>
+				</form>
+			</div>
+		</div>
+		</section>
+		<!-- Search Section End -->
+
+
+		<!-- Contact Begin -->
+		<section class="chooseus-section spad set-bg"
+			data-setbg="/resources/img/ima3.jpg"
+			style="background-image: url(&quot;img/chooseus/chooseus-bg.jpg&quot;);">
+		<div class="container">
+			<section class="feature-property-section spad">
+		<div class="container">
+			<div class="pd-widget">
+
+				<div class="section-title">
+					<h4>Contact</h4>
+				</div>
+
+				<form action="#" class="review-form">
+					<div class="group-input" >
+						<input class="cc" type="text" placeholder="Object"></input>
+					</div>
+					<textarea class="cc" placeholder="Messages"></textarea>
+					<button type="submit" class="site-btn">Send Email</button>
+				</form>
+			</div>
+		</div>
+		</section>
+		</div>
+		</section>
+		<!-- Contact ends -->
+
+
+		
+
+		<!-- Logo Carousel Begin -->
+		<div class="logo-carousel">
+			<div class="container">
+				<div class="lc-slider owl-carousel">
+					<a href="#" class="lc-item">
+						<div class="lc-item-inner">
+							<img src="/resources/img/logo-carousel/lc-1.png" alt="" />
+						</div>
+					</a> <a href="#" class="lc-item">
+						<div class="lc-item-inner">
+							<img src="/resources/img/logo-carousel/lc-2.png" alt="" />
+						</div>
+					</a> <a href="#" class="lc-item">
+						<div class="lc-item-inner">
+							<img src="/resources/img/logo-carousel/lc-3.png" alt="" />
+						</div>
+					</a> <a href="#" class="lc-item">
+						<div class="lc-item-inner">
+							<img src="/resources/img/logo-carousel/lc-4.png" alt="" />
+						</div>
+					</a> <a href="#" class="lc-item">
+						<div class="lc-item-inner">
+							<img src="/resources/img/logo-carousel/lc-5.png" alt="" />
+						</div>
+					</a> <a href="#" class="lc-item">
+						<div class="lc-item-inner">
+							<img src="/resources/img/logo-carousel/lc-6.png" alt="" />
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- Logo Carousel End -->
+
+		<!-- Contact Section Begin -->
+		<section class="contact-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="contact-info">
+						<div class="ci-item">
+							<div class="ci-icon">
+								<i class="fa fa-map-marker"></i>
+							</div>
+							<div class="ci-text">
+								<h5>Address</h5>
+								<p>1, 2 rue André Ampère - 2083 - Pôle Technologique - El
+									Ghazala.</p>
+							</div>
+						</div>
+						<div class="ci-item">
+							<div class="ci-icon">
+								<i class="fa fa-mobile"></i>
+							</div>
+							<div class="ci-text">
+								<h5>Phone</h5>
+								<ul>
+									<li>T (216) 70 250 000</li>
+									<li>T (216) 70 251 000</li>
+								</ul>
+							</div>
+						</div>
+						<div class="ci-item">
+							<div class="ci-icon">
+								<i class="fa fa-headphones"></i>
+							</div>
+							<div class="ci-text">
+								<h5>Support</h5>
+								<p>Support.Dari@gmail.com</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cs-map">
+			<iframe
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d735515.5813275519!2d-80.41163541934742!3d43.93644386501528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882a55bbf3de23d7%3A0x3ada5af229b47375!2sMono%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sbd!4v1583262687289!5m2!1sen!2sbd"
+				height="450" style="border: 0;" allowfullscreen="" />
+		</div>
+		</section>
+		<!-- Contact Section End -->
+
+
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/ClientTemplate/template.xhtml">
+	<ui:define name="Add">
+
+
+		<head>
+<title>Warehouse &mdash; Website Template by Colorlib</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,900|Oswald:300,400,700"
+	rel="stylesheet" />
+<link rel="stylesheet" href="/resources/fonts/icomoon/style.css" />
+
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/resources/css/jquery-ui.css" />
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css" />
+
+<link rel="stylesheet" href="/resources/css/owl.theme.default.min.css" />
+<link rel="stylesheet" href="/resources/css/owl.theme.default.min.css" />
+
+<link rel="stylesheet" href="/resources/css/jquery.fancybox.min.css" />
+
+<link rel="stylesheet" href="/resources/css/bootstrap-datepicker.css" />
+
+<link rel="stylesheet"
+	href="/resources/fonts/flaticon/font/flaticon.css" />
+
+<link rel="stylesheet" href="/resources/css/aos.css" />
+
+<link rel="stylesheet" href="/resources/css/style.css" />
+		</head>
+
+
+
+		<body>
+			<br></br>
+			<br></br>
+			<br></br>
+
+			<br></br>
+			<h:form>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 order-md-2 mb-4">
+						<h4 class="d-flex justify-content-between align-items-center mb-3">
+							<h4 class="mb-3">Appointment Details</h4>
+						</h4>
+						<ul class="list-group mb-3">
+							<li
+								class="list-group-item d-flex justify-content-between lh-condensed">
+								<div>
+									<h6 class="my-0">Date: </h6>
+									<small class="text-muted"><h:outputText style="color:#095D37" value="#{AptController.dateOfApt}" /></small>
+								</div> 
+							</li>
+							<li
+								class="list-group-item d-flex justify-content-between lh-condensed">
+								<div>
+									<h6 class="my-0">Hour: </h6>
+									<small class="text-muted"><h:outputText style="color:#095D37" value="#{AptController.hour}" /></small>
+								</div>
+							</li>
+							<li
+								class="list-group-item d-flex justify-content-between lh-condensed">
+								<div>
+									<h6 class="my-0">Location: </h6>
+									<small class="text-muted"><h:outputText style="color:#095D37" value="#{AptController.location}" /></small>
+								</div> 
+							</li>
+							<li
+								class="list-group-item d-flex justify-content-between lh-condensed">
+								<div>
+									<h6 class="my-0">Firstname Lastname: </h6>
+									<small class="text-muted"><h:outputText style="color:#095D37" value="#{AptController.clientfirstName}" /> <h:outputText style="color:#095D37" value="#{AptController.clientlastName}" /></small>
+								</div> 
+							</li>
+							<li
+								class="list-group-item d-flex justify-content-between lh-condensed">
+								<div>
+									<h6 class="my-0">Email: </h6>
+									<small class="text-muted"><h:outputText style="color:#095D37" value="#{AptController.mail}" /></small>
+								</div> 
+							</li>
+							<li
+								class="list-group-item d-flex justify-content-between lh-condensed">
+								<div>
+									<h6 class="my-0">PhoneNumber: </h6>
+									<small class="text-muted"><h:outputText style="color:#095D37" value="#{AptController.phonenumber}" /></small>
+								</div> 
+							</li>
+							<li
+								class="list-group-item d-flex justify-content-between bg-light">
+								<div class="text-success">
+									<h6 class="my-0"><h:outputText style="color:#095D37" value="#{AptController.stateapt}" /></h6>
+									
+								</div> 
+							</li>
+							
+						</ul>
+
+						
+					</div>
+					<div class="col-md-8 order-md-1">
+					<div class="row">
+						<h4 class="mb-3" style="color:#55D6F9">Ad Details      </h4>
+						<br></br>
+						<br></br>
+						<h5 class="mb-3"><span class="type-value"><h:outputText style="color:#8455F9" value="#{AptController.adId.title} " /></span></h5></div>
+						<form class="needs-validation" novalidate="">
+						
+						<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="firstName" style="color:#F26FA5">Property Type: </label>
+									<span class="type-value"><h:outputText  value="#{AptController.adId.type} " /></span>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="lastName" style="color:#F26FA5">Description: </label> 
+									<span class="type-value"><h:outputText  value="#{AptController.adId.description} " /></span>
+								</div>
+							</div>
+
+							
+							<hr class="mb-4"></hr>
+							
+							
+						
+						
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="firstName" style="color:#F26FA5">Property Category: </label> 
+									<span class="type-value"><h:outputText  value="#{AptController.adId.category} " /></span>
+									
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="lastName" style="color:#F26FA5">Property State: </label> 
+									<span class="type-value"><h:outputText  value="#{AptController.adId.state} " /></span>
+								</div>
+							</div>
+
+							
+							<hr class="mb-4"></hr>
+							
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="firstName" style="color:#F26FA5">Land Area: </label> 
+									<span class="type-value"><h:outputText  value="#{AptController.adId.landArea} " /></span>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="lastName" style="color:#F26FA5">Living Area: </label> 
+									<span class="type-value"><h:outputText  value="#{AptController.adId.livingArea} " /></span>
+								</div>
+							</div>
+
+							
+							<hr class="mb-4"></hr>
+							
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="firstName" style="color:#F26FA5">Bedrooms: </label> 
+									<span class="type-value"><h:outputText  value="#{AptController.adId.bedrooms} " /></span></div>
+								<div class="col-md-6 mb-3">
+									<label for="lastName" style="color:#F26FA5">Bathrooms: </label> 
+									<span class="type-value"><h:outputText  value="#{AptController.adId.bathrooms} " /></span>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="lastName" style="color:#F26FA5">Floor: </label> 
+									<span class="type-value"><h:outputText  value="#{AptController.adId.floor} " /></span>
+								</div>
+								
+							</div>
+
+							
+							<hr class="mb-4"></hr>
+								
+								
+								
+								
+							
+							
+							
+							
+
+							
+							
+							
+						</form>
+					</div>
+				</div>
+			</div></h:form>
+		</body>
+
+
+	</ui:define>
+</ui:composition>

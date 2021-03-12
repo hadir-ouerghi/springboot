@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/ClientTemplate/template.xhtml">
+
+
+	<ui:param name="page_name" value="Dari" />
+	<ui:define name="client">
+
+		<!-- Search Section Begin -->
+		<section class="breadcrumb-section spadd set-bg"
+			data-setbg="/resources/img/p4.jpg"
+			style="background-image: url(&quot;img/breadcrumb-bg.jpg&quot;);">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="breadcrumb-text">
+						<h4>Appointment Details</h4>
+						<div class="bt-option">
+							<a href="./index.html"><i class="fa fa-home"></i> Home</a> <span>Property</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</section>
+		<!-- Search Section Ends -->
+
+		<br></br>
+		<br></br>
+		<section class="property-details-section">
+	    <h:form>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="pd-text">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="pd-title">
+									<a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+									<div class="label"><h:outputText value="#{AptController.adId.type}" /></div>
+									<div class="pt-price">
+										<h:outputText value="#{AptController.adId.price}" /><span>/month</span>
+									</div>
+									<h3><h:outputText value="#{AptController.adId.title}" /></h3>
+									<p>
+										<span class="icon_pin_alt"></span>
+										<h:outputText  value="#{AptController.adId.region} " /> <h:outputText style="color:#095D37" value="#{AptController.adId.city}" />
+										
+
+									</p>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="pd-social">
+									<a href="#"><i class="fa fa-mail-forward"></i></a> <a href="#"><i
+										class="fa fa-send"></i></a> <a href="#"><i class="fa fa-heart"></i></a>
+									<a href="#"><i class="fa fa-mail-forward"></i></a> <a href="#"><i
+										class="fa fa-cloud-download"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="pd-board">
+							<div class="tab-board">
+								<ul class="nav nav-tabs" role="tablist">
+									<li class="nav-item"><a class="nav-link" data-toggle="tab"
+										href="#tabs-1" role="tab" aria-selected="false">Details</a></li>
+									<li class="nav-item"><a class="nav-link active"
+										data-toggle="tab" href="#tabs-2" role="tab"
+										aria-selected="true">Photos</a></li>
+										<li class="nav-item"><a class="nav-link"
+										data-toggle="tab" href="#tabs-3" role="tab"
+										aria-selected="false">Description</a></li>
+									
+								</ul>
+								<div class="tab-content">
+									<div class="tab-pane" id="tabs-1" role="tabpanel">
+										<div class="tab-details">
+											<ul class="left-table">
+												<li><span class="type-name">Property Category</span> <span
+													class="type-value"><h:outputText  value="#{AptController.adId.category} " /></span></li>
+												<li><span class="type-name">Property State</span> <span
+													class="type-value"><h:outputText  value="#{AptController.adId.state} " /></span></li>
+												<li><span class="type-name">Living Area</span> <span
+													class="type-value"><h:outputText  value="#{AptController.adId.livingArea} " /></span></li>
+												<li><span class="type-name">Land Area</span> <span
+													class="type-value"><h:outputText  value="#{AptController.adId.landArea} " /></span></li>
+												
+											</ul>
+											<ul class="right-table">
+												<li><span class="type-name">Floor</span> <span
+													class="type-value"><h:outputText  value="#{AptController.adId.floor} " /></span></li>
+												<li><span class="type-name">Bedrooms</span> <span
+													class="type-value"><h:outputText  value="#{AptController.adId.bedrooms} " /></span></li>
+												<li><span class="type-name">Bathrooms</span> <span
+													class="type-value"><h:outputText  value="#{AptController.adId.bathrooms} " /></span></li>
+												
+											</ul>
+										</div>
+									</div>
+									<div class="tab-pane active" id="tabs-2" role="tabpanel">
+										<div class="tab-desc">
+											<img src="/resources/img/p9.jpg" alt="" />
+										</div>
+									</div>
+									
+										<div class="tab-pane" id="tabs-3" role="tabpanel">
+										<div class="tab-desc">
+											<h:outputText  value="#{AptController.adId.description} " />
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="pd-widget">
+							<h4>Client</h4>
+							<div class="pd-agent">
+								<div class="agent-pic">
+									<img src="/resources/img/property/details/agent.jpg" alt=""></img>
+								</div>
+								<div class="agent-text">
+									<div class="at-title">
+										<h6><h:outputText  value="#{AptController.userId.firstName} " /> <h:outputText  value="#{AptController.userId.lastName} " /></h6>
+										<span><h:outputText  value="#{AptController.userId.status} " /></span> <a href="#" class="primary-btn">VIew
+											profile</a>
+									</div>
+									<p><i class="fa fa-envelope-o"></i> <h:outputText  value="#{AptController.userId.email} " /></p>
+												
+									<div class="at-option">
+										<div class="at-number"><h:outputText  value="#{AptController.userId.phone} " /></div>
+										<div class="at-social">
+											<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+												class="fa fa-twitter"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="property-sidebar">
+						<div class="single-sidebar">
+							<div class="section-title sidebar-title">
+								<h5>Your Appointment</h5>
+							</div>
+							<div class="top-agent">
+								<div class="ta-item">
+									<div class="ta-pic set-bg"
+										data-setbg="/resources/img/p14.png"
+										style="background-image: url(&quot;img/property/details/sidebar/ta-1.jpg&quot;);"></div>
+									<div class="ta-text">
+										
+										<div class="ta-num">Date:<h:outputText style="color:#095D37" value="#{AptController.dateOfApt}" /></div>
+										<div class="ta-num">Hour:<h:outputText style="color:#095D37" value="#{AptController.hour}" /></div>
+									
+									</div>
+								</div>
+							</div>
+							<div class="top-agent">
+								<div class="ta-item">
+									<div class="ta-pic set-bg"
+										data-setbg="/resources/img/p17.jpg"
+										style="background-image: url(&quot;img/property/details/sidebar/ta-1.jpg&quot;);"></div>
+									<div class="ta-text">
+										
+										<div class="ta-num">E-mail:<h:outputText style="color:#095D37" value="#{AptController.mail}" /></div>
+										<div class="ta-num">Phone Number:<h:outputText style="color:#095D37" value="#{AptController.phonenumber}" /></div>
+									
+									</div>
+								</div>
+							</div>
+							
+							<button type="submit" class="site-btn btn-sm">Update</button>
+							<h:commandButton value="delete"
+									action="#{AptController.deleteAdsById(AptController.idapt)}"
+									class="site-btn btn-sm btn-outline-danger" />
+							
+							
+						</div>
+						<br></br>
+						<br></br>
+						<br></br>
+						<br></br>
+						<br></br>
+						<br></br>
+						<div class="single-sidebar">
+							<div class="section-title sidebar-title">
+								<h5>Contact</h5>
+							</div>
+							<form action="#" class="calculator-form">
+								<div class="filter-input">
+									<p>Object</p>
+									<input type="text" placeholder=""></input>
+								</div>
+								<div class="filter-input">
+									<p>Message</p>
+									<input type="text" placeholder=""></input>
+								</div>
+								
+								<button type="submit" class="site-btn">Send</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</h:form>
+		</section>
+
+
+
+
+
+
+
+
+
+		<!-- Logo Carousel Begin -->
+		<div class="logo-carousel">
+			<div class="container">
+				<div class="lc-slider owl-carousel">
+					<a href="#" class="lc-item">
+						<div class="lc-item-inner">
+							<img src="/resources/img/logo-carousel/lc-1.png" alt="" />
+						</div>
+					</a> <a href="#" class="lc-item">
+						<div class="lc-item-inner">
+							<img src="/resources/img/logo-carousel/lc-2.png" alt="" />
+						</div>
+					</a> <a href="#" class="lc-item">
+						<div class="lc-item-inner">
+							<img src="/resources/img/logo-carousel/lc-3.png" alt="" />
+						</div>
+					</a> <a href="#" class="lc-item">
+						<div class="lc-item-inner">
+							<img src="/resources/img/logo-carousel/lc-4.png" alt="" />
+						</div>
+					</a> <a href="#" class="lc-item">
+						<div class="lc-item-inner">
+							<img src="/resources/img/logo-carousel/lc-5.png" alt="" />
+						</div>
+					</a> <a href="#" class="lc-item">
+						<div class="lc-item-inner">
+							<img src="/resources/img/logo-carousel/lc-6.png" alt="" />
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- Logo Carousel End -->
+
+
+
+
+		<!-- Contact Section Begin -->
+		<section class="contact-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="contact-info">
+						<div class="ci-item">
+							<div class="ci-icon">
+								<i class="fa fa-map-marker"></i>
+							</div>
+							<div class="ci-text">
+								<h5>Address</h5>
+								<p>1, 2 rue André Ampère - 2083 - Pôle Technologique - El
+									Ghazala.</p>
+							</div>
+						</div>
+						<div class="ci-item">
+							<div class="ci-icon">
+								<i class="fa fa-mobile"></i>
+							</div>
+							<div class="ci-text">
+								<h5>Phone</h5>
+								<ul>
+									<li>T (216) 70 250 000</li>
+									<li>T (216) 70 251 000</li>
+								</ul>
+							</div>
+						</div>
+						<div class="ci-item">
+							<div class="ci-icon">
+								<i class="fa fa-headphones"></i>
+							</div>
+							<div class="ci-text">
+								<h5>Support</h5>
+								<p>Support.Dari@gmail.com</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cs-map">
+			<iframe
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d735515.5813275519!2d-80.41163541934742!3d43.93644386501528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882a55bbf3de23d7%3A0x3ada5af229b47375!2sMono%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sbd!4v1583262687289!5m2!1sen!2sbd"
+				height="450" style="border: 0;" allowfullscreen="" />
+		</div>
+		</section>
+		<!-- Contact Section End -->
+	</ui:define>
+</ui:composition>

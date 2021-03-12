@@ -1,0 +1,65 @@
+	<div class="site-blocks-cover overlay overlay-2"  
+			style="background-image: url(#{request.contextPath}/resources/images/home.jpg);height: 10%
+  ;width: 100%;"
+			data-aos="fade" id="home-section">
+		</div>	
+					<h:form>
+						<table>
+							<tr>
+								<td><h:outputText value="type"></h:outputText></td>
+								<td><h:inputText value="#{resrvationcontroller.type}"></h:inputText></td>
+
+								<td><h:outputText value="region"></h:outputText></td>
+								<td><h:inputText value="#{resrvationcontroller.region}"></h:inputText></td>
+
+								<td><h:outputText value="priceMin"></h:outputText></td>
+								<td><h:inputText
+										value="#{resrvationcontroller.priceMin}"></h:inputText></td>
+
+								<td><h:outputText value="priceMax"></h:outputText></td>
+								<td><h:inputText value="#{resrvationcontroller.priceMax}"></h:inputText></td>
+								
+								<td><h:outputText value="chambremin"></h:outputText></td>
+								<td><h:inputText value="#{resrvationcontroller.chambremin}"></h:inputText></td>
+								
+								<td><h:outputText value="checkIn"></h:outputText></td>
+								<td><h:inputText value="#{resrvationcontroller.checkIn}"></h:inputText></td>
+								
+								<td><h:outputText value="checkOut"></h:outputText></td>
+								<td><h:inputText value="#{resrvationcontroller.checkOut}"></h:inputText></td>
+								
+							
+							</tr>
+
+							<tr>
+								<td colspan="2"><h:commandButton value="Rechercher" >
+										 <f:ajax execute="@form" render="pnlResultat" event="keyup" />
+										 </h:commandButton>
+								</td>
+							</tr>
+						</table>
+					</h:form>
+				
+				<h:panelGroup id="pnlResultat">
+						<h:dataTable value="#{resrvationcontroller.rechercher}" var="annonce" border="1">
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="type" />
+								</f:facet>
+								<h:outputText value="#{annonce.type}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="region" />
+								</f:facet>
+								<h:outputText value="#{annonce.region}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="price" />
+								</f:facet>
+								<h:outputText value="#{annonce.price}" />
+							</h:column>
+					</h:dataTable>
+
+				</h:panelGroup>

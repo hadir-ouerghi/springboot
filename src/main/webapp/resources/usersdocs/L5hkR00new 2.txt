@@ -1,0 +1,232 @@
+package com.example.controller;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.faces.event.AjaxBehaviorEvent;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.ocpsoft.rewrite.annotation.Join;
+import org.ocpsoft.rewrite.el.ELBeanName;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.entity.Announce;
+import com.example.entity.Reservation;
+import com.example.entity.User;
+import com.example.restcontroller.Home;
+import com.example.service.reservationService;
+
+@Scope(value = "session")
+@Controller(value ="resrvationcontroller")
+@ELBeanName(value = "reservationcontroller")
+@Join(path = "/user/reservation", to = "/pages/user/reserve.jsf")
+public class Reservationcontrole {
+	
+	
+	@Autowired
+	reservationService rS;
+	private int id;
+	private Announce announce;
+	private LocalDateTime dateres;
+	private User user;
+	private boolean isValide;
+	private Date checkIn;
+	private Date checkOut;
+	private String type;
+	private String region;
+	private float priceMin, priceMax;
+	private int chambremin;
+			
+	
+	private User connectedUser ;
+
+	 public void  testwhoIsConnected()
+	 {
+		 connectedUser = HomeController.connectedUser; 
+	 }
+
+	public void setRechercher(List<Announce> rechercher) {
+		this.rechercher = rechercher;
+	}
+
+	public float getPriceMin() {
+		return priceMin;
+	}
+	public void setPriceMin(float priceMin) {
+		this.priceMin = priceMin;
+	}
+	public float getPriceMax() {
+		return priceMax;
+	}
+	public void setPriceMax(float priceMax) {
+		this.priceMax = priceMax;
+	}
+	public int getChambremin() {
+		return chambremin;
+	}
+	public void setChambremin(int chambremin) {
+		this.chambremin = chambremin;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getRegion() {
+		return region;
+	}
+	public void setRegion(String region) {
+		this.region = region;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public Announce getAnnounce() {
+		return announce;
+	}
+	public void setAnnounce(Announce announce) {
+		this.announce = announce;
+	}
+	public LocalDateTime getDateres() {
+		return dateres;
+	}
+	public void setDateres(LocalDateTime dateres) {
+		this.dateres = dateres;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public boolean isValide() {
+		return isValide;
+	}
+	public void setValide(boolean isValide) {
+		this.isValide = isValide;
+	}
+	public Date getCheckIn() {
+		return checkIn;
+	}
+	public void setCheckIn(Date checkIn) {
+		this.checkIn = checkIn;
+	}
+	public Date getCheckOut() {
+		return checkOut;
+	}
+	public void setCheckOut(Date checkOut) {
+		this.checkOut = checkOut;
+	}
+	
+	
+	    public void ajouterReservation() throws Exception {
+	         rS.ajouterReservation(announce.getId(),connectedUser.getUserName(),checkIn,checkOut);
+	    }
+	    
+	    public List<Reservation> getAllreservation() 
+	    {
+	    	return rS.findAllReservation();
+	    }
+	    
+
+		public void modifierReservation() throws Exception {
+		    
+	    	rS.modifierReservation(id,announce.getId(),connectedUser.getUserName(), checkIn, checkOut);
+
+		}
+		
+
+		public void deleteReservationById() {
+			rS.deleteReservationById(id,connectedUser.getUserName());
+			
+		}
+
+	    public void ajouterReservationLong() throws Exception {
+	         rS.ajouterReservationLong(announce.getId(),connectedUser.getUserName());
+	    }
+
+	    public List<Reservation> findReservationByUser() 
+	    {
+	    	return rS.findReservationByUser(connectedUser.getUserName());
+	    }
+
+	    private Announce annonce;
+	    
+		public Announce getAnnonce() {
+			return annonce;
+		}
+		public void setAnnonce(Announce annonce) {
+			this.annonce = annonce;
+		}
+
+		private  List<Announce>rechercher= new ArrayList<Announce>();;
+		
+		public List<Announce> getRechercher() {
+			return rechercher;
+		}
+		public List<Announce> listRecherche= new ArrayList<Announce>();
+
+		public void Recherche() throws Exception {
+		
+	    	if((chambremin==0)&&(checkIn==null)&&(checkOut==null)&&(priceMin==0)&&(priceMax==0)) {
+	    		rechercher=rS.annoncebyregion(type, region);
+	    		rechercher.add(annonce);
+	    	}
+	    	if((chambremin==0)&&(checkIn==null)&&(checkOut==null)) {
+	    		 rechercher= rS.annoncebyprice(type, region, priceMin, priceMax);
+	    		 rechercher.add(annonce);
+	    	}
+	    	else if((checkIn==null)&&(checkOut==null)&&(priceMin==0)&&(priceMax==0)){
+	    		 rechercher= rS.findannoncebynbrchambre(type, region, chambremin);
+	    		 rechercher.add(annonce);
+	    	}
+			else if((checkIn==null)&&(checkOut==null)){
+				rechercher= rS.findannoncebyprixnbrchambre(type, region, priceMin, priceMax, chambremin);
+				rechercher.add(annonce);
+			}
+			else if((priceMin==0)&&(priceMax==0)&&(chambremin==0)){
+				rechercher= rS.findannoncebydate(type, region, checkIn, checkOut);
+				rechercher.add(annonce);
+			}
+			else if((priceMin==0)&&(priceMax==0)){
+				rechercher= rS.findannoncebydatec(type, region, checkIn, checkOut,chambremin);
+				rechercher.add(annonce);
+			}
+			else if(chambremin==0){
+				rechercher= rS.findannonceby(type, region, checkIn, checkOut, priceMin, priceMax);
+				rechercher.add(annonce);
+			}
+			else {
+				rechercher= rS.findannonceby(type,region,chambremin, priceMin, priceMax, checkIn, checkOut);
+				listRecherche.add(annonce);
+			
+		}
+
+		}
+
+		public List<Announce> getListRecherche() {
+			return listRecherche;
+		}
+
+		public void setListRecherche(List<Announce> listRecherche) {
+			this.listRecherche = listRecherche;
+		}
+		
+	    
+}
